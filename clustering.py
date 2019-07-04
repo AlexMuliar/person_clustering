@@ -17,8 +17,7 @@ min_samples = 3
 def get_data():
     df = pd.read_sql("\
         SELECT id, image, width, height\
-        FROM object_image\
-        LIMIT 500", connection)
+        FROM object_image", connection)
     for i in range(df.shape[0]):
         obj = df.iloc[i]
         df.image[i] = Image.frombytes("RGB", (obj.width, obj.height), obj.image).convert('L').resize(size)
