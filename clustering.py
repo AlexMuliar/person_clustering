@@ -65,7 +65,7 @@ def marker_clusters(data, eps):
     if len(unique) == 1:
         return -1, data
     counts = [i for i in counts]
-    noise_index = counts.index(max(counts[1:]))
+    noise_index = counts.index(max(counts[1:])) - 1
     for i in range(len(clf.labels_)):
         if clf.labels_[i] == noise_index:
             clf.labels_[i] = -1
